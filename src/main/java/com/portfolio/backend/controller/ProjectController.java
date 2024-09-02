@@ -9,7 +9,7 @@ import com.portfolio.backend.services.ProjectService;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://portfolio-rohitjaiswar123s-projects.vercel.app")
 @RestController
 @RequestMapping("/api/projects")
 public class ProjectController {

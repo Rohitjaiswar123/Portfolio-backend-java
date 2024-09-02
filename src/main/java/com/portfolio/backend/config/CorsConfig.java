@@ -11,7 +11,7 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("https://portfolio-rohitjaiswar123s-projects.vercel.app/") // Add your Next.js app's URL
+                .allowedOrigins("https://portfolio-rohitjaiswar123s-projects.vercel.app") // Add your Next.js app's URL
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true);
