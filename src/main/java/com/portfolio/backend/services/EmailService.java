@@ -16,7 +16,7 @@ public class EmailService {
         SimpleMailMessage message = new SimpleMailMessage();
 
         // Set the recipient to your email address
-        message.setTo("hsinghjayesh@gmail.com"); // Replace with your email address
+        message.setTo("rohit.s.jaiswar@gmail.com"); // Replace with your email address
 
         // Set the subject using the user's subject
         message.setSubject("New Contact Form Submission: " + request.getSubject());
