@@ -10,8 +10,6 @@ import com.portfolio.backend.services.ProjectService;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
-
-
 @RestController
 @RequestMapping("/api/projects")
 public class ProjectController {
@@ -36,6 +34,24 @@ public class ProjectController {
         Project project = projectService.getProjectById(id);
         if (project != null) {
             return ResponseEntity.ok(project);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Project> updateProject(@PathVariable Long id, @RequestBody Project updatedProject) {
+        Project existingProject = projectService.getProjectById(id);
+        if (existingProject != null) {
+            // Update fields
+            existingProject.setTitle(updatedProject.getTitle());
+            existingProject.setDescription(updatedProject.getDescription());
+            existingProject.setImageLink(updatedProject.getImageLink());
+            existingProject.setProjectLink(updatedProject.getProjectLink());
+            
+            // Save updated project
+            Project savedProject = projectService.saveProject(existingProject);
+            return ResponseEntity.ok(savedProject);
         } else {
             return ResponseEntity.notFound().build();
         }
